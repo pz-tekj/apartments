@@ -1,3 +1,3 @@
 export const environment = {
-  API_ADDRESS: 'pz-api.tnogaj.pl'
+  API_ADDRESS: 'https://pz-api.tnogaj.pl'
 };
