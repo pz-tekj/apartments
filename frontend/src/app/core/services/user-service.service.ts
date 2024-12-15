@@ -22,12 +22,16 @@ export interface User { // system sprawdzenia loginu i hasla
 })
 export class UserServiceService {
   private readonly USER_KEY = 'currentUser';
-  private readonly currentUserSubject = new BehaviorSubject<User | null>(null);
-  public currentUser$ = this.currentUserSubject.asObservable();
+  private readonly currentUserSubject: BehaviorSubject<User | null>;
+  public readonly currentUser$: Observable<User | null>;
 
   constructor(
     private http: HttpClient,
-  ) { }
+  ) {
+    const userJson = localStorage.getItem(this.USER_KEY);
+    this.currentUserSubject = new BehaviorSubject(userJson ? JSON.parse(userJson) : null);
+    this.currentUser$ = this.currentUserSubject.asObservable();
+  }
 
   public setCurrentUser(user: User | null, password?: string) {
     if (password && user) {
