@@ -54,8 +54,8 @@ public class SecurityConfig {
     @Bean
     CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.addAllowedOrigin("http://localhost:8051");
-        configuration.addAllowedOrigin("https://mieszkania.tnogaj.pl");
+        configuration.addAllowedOrigin("https://pz.tnogaj.pl");
+        configuration.addAllowedOrigin("https://pz-api.tnogaj.pl");
         configuration.addAllowedHeader("Authorization");
         configuration.addAllowedHeader("Content-Type");
         configuration.addAllowedMethod("GET");
